@@ -1,3 +1,6 @@
+# general
+.vscode/
+
 # C++ stuff:
 # Prerequisites
 *.d
