@@ -7,3 +7,5 @@ out pure nonsense.
 ## Rollup of Days
 ### [Day 1](https://adventofcode.com/2022/day/1)
 Just getting clang to work. Turns out all I had to do was use `clang++`. Oof.
+### [Day 2](https://adventofcode.com/2022/day/2)
+Becoming familiar with `map` before I really need it.
