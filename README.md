@@ -9,3 +9,7 @@ out pure nonsense.
 Just getting clang to work. Turns out all I had to do was use `clang++`. Oof.
 ### [Day 2](https://adventofcode.com/2022/day/2)
 Becoming familiar with `map` before I really need it.
+### [Day 3](https://adventofcode.com/2022/day/3)
+Dipping my toes in the water with header files. Decided to do two appreaches to the solution;
+one with nested for loops (nice and quick to write) and the other with a hash set to get silky
+smooth linear time vibes.
