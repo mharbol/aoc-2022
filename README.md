@@ -13,3 +13,4 @@ Becoming familiar with `map` before I really need it.
 Dipping my toes in the water with header files. Decided to do two appreaches to the solution;
 one with nested for loops (nice and quick to write) and the other with a hash set to get silky
 smooth linear time vibes.
+### [Day 4](https://adventofcode.com/2022/day/4)
