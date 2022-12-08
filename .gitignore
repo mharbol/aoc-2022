@@ -1,5 +1,6 @@
 # general
 .vscode/
+.DS_Store/
 
 # C++ stuff:
 # Prerequisites
