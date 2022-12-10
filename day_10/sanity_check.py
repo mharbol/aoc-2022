@@ -6,7 +6,6 @@ class Freq:
     def __init__(self):
         self.val = 1
         self.cycle = 0
-        self.doing = 0
         self.record = []
     
     # this is a doozy of a method:
@@ -15,19 +14,14 @@ class Freq:
         self.cycle += 1
         # add mid-cycle state to the record
         self.record.append((self.cycle, self.val))
-        # set the in-progress state to th input
-        self.doing = value
         # if the in-progress is an operation, process the new operation
-        if self.doing != 0:
+        if value != 0:
             # start another cycle...
             self.cycle += 1
             # updoot the record...
             self.record.append((self.cycle, self.val))
             # do the same cycle thing
-            self.val += self.doing
-            # clear out the process queue
-            self.doing = 0 
-        
+            self.val += value       
 
 def make_input(lines):
     out = []
