@@ -14,3 +14,8 @@ Dipping my toes in the water with header files. Decided to do two appreaches to 
 one with nested for loops (nice and quick to write) and the other with a hash set to get silky
 smooth linear time vibes.
 ### [Day 4](https://adventofcode.com/2022/day/4)
+Really fell of the bandwangon starting on the 4th (only addressing it on the 10th).
+Gonna progressivly get back on it attacking the easier parts first.
+Order of precidence: custom file iterator, stacks, custom classes.
+Day 4 feels like a good start for all this madness.
+Probably coming Tuesday the 13th at the earliest.
