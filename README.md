@@ -19,3 +19,20 @@ Gonna progressivly get back on it attacking the easier parts first.
 Order of precidence: custom file iterator, stacks, custom classes.
 Day 4 feels like a good start for all this madness.
 Probably coming Tuesday the 13th at the earliest.
+### [Day 5](https://adventofcode.com/2022/day/5)
+Getting back into the swing of things with `stack`s.
+Got to relearn that going stack-stack makes part 2 sooooo much easier.
+### [Day 6](https://adventofcode.com/2022/day/6)
+### [Day 7](https://adventofcode.com/2022/day/7)
+This was harder than it should have been thanks to python.
+Kept thinking I was doing something wrong but it turns out I just didn't understand python
+pointers well enough.
+With a typed language it is/was so much easier to attack.
+### [Day 8](https://adventofcode.com/2022/day/8)
+### [Day 9](https://adventofcode.com/2022/day/9)
+This one distinguished the pack. A lot of small conditions to make it challenging.
+Fortunately treated it like segments of a snake early on and made part 2 pretty easy.
+### [Day 10](https://adventofcode.com/2022/day/10)
+Hardest part here was understanding the wording of the input.
+The pixel format of part 2 was a nice touch; this was a fun day.
+### [Day 11](https://adventofcode.com/2022/day/11)
