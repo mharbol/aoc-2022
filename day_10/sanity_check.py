@@ -68,6 +68,7 @@ def alter_display(cycle, value, display):
     if column == value - 1 or column == value or column == value + 1:
         display[row][column] = True
 
+# Use the record from before to do the pretty pixel display
 for rec in freq.record:
     alter_display(rec[0], rec[1], display)
 
