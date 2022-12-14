@@ -36,3 +36,7 @@ Fortunately treated it like segments of a snake early on and made part 2 pretty 
 Hardest part here was understanding the wording of the input.
 The pixel format of part 2 was a nice touch; this was a fun day.
 ### [Day 11](https://adventofcode.com/2022/day/11)
+### [Day 12](https://adventofcode.com/2022/day/12)
+### [Day 13](https://adventofcode.com/2022/day/13)
+This day was so much fun. Will have to refine and save the `NestedListComparitor` tree
+for future use.
