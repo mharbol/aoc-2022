@@ -40,3 +40,4 @@ The pixel format of part 2 was a nice touch; this was a fun day.
 ### [Day 13](https://adventofcode.com/2022/day/13)
 This day was so much fun. Will have to refine and save the `NestedListComparitor` tree
 for future use.
+### [Day 14](https://adventofcode.com/2022/day/14)
