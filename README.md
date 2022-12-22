@@ -41,3 +41,20 @@ The pixel format of part 2 was a nice touch; this was a fun day.
 This day was so much fun. Will have to refine and save the `NestedListComparitor` tree
 for future use.
 ### [Day 14](https://adventofcode.com/2022/day/14)
+This one is in the works.
+### [Day 15](https://adventofcode.com/2022/day/15)
+This one is in the works.
+### [Day 16](https://adventofcode.com/2022/day/16)
+This one is in the works.
+### [Day 17](https://adventofcode.com/2022/day/17)
+This one is in the works.
+### [Day 18](https://adventofcode.com/2022/day/18)
+This one is in the works.
+### [Day 19](https://adventofcode.com/2022/day/19)
+This one is in the works.
+### [Day 20](https://adventofcode.com/2022/day/20)
+This one is in the works.
+### [Day 21](https://adventofcode.com/2022/day/21)
+This one is in the works.
+### [Day 22](https://adventofcode.com/2022/day/22)
+This one is in the works.
