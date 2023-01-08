@@ -9,6 +9,7 @@ class NestedListComparitor:
     I know that in the scope of the problem (part 1) this is overkill but it makes me feel
     like a real programmer.
     """
+
     def __init__(self, arg_str : str) -> None:
         """
         Makes a new node based on the input `str`. Will make `int` value as the value if
@@ -27,10 +28,11 @@ class NestedListComparitor:
         # If the arg_str is "[]" we are good
         if arg_str == "[]":
             return
-        
+
         # If the input is just an int then the value is an int then that is the value
         try:
             test_int = int(arg_str)
+            end_index : int = 0
             self.value = test_int
             return
         except ValueError:
@@ -45,12 +47,12 @@ class NestedListComparitor:
         end_index : int = 0
 
         while start_index < len(our_str):
-            
+
             new_node : NestedListComparitor = None
 
             # Check if we are starting a new list
             if our_str[start_index] == "[":
-                
+
                 # since it is a new list, make the next entry a NestedListComparitor for that list
                 end_index = find_corresponding_bracket_outer_index(our_str, start_index)
                 new_node = NestedListComparitor(our_str[start_index : end_index])
@@ -63,11 +65,11 @@ class NestedListComparitor:
                 except ValueError:
                     # this means that we are at the end of our_str
                     end_index = len(our_str)
-                
+
                 new_node = NestedListComparitor(our_str[start_index : end_index])
 
             # checks if our parsing was successful
-            if new_node == None:
+            if new_node is None:
                 raise Exception(f"new_node is None for substring of {our_str} which is {our_str[start_index:]}")
 
             # append the new value and update our starting index
@@ -91,10 +93,10 @@ class NestedListComparitor:
         """
         if type(other) != NestedListComparitor:
             raise Exception(f"Type {type(other)} cannot be compared to {type(self)}")
-        
+
         # get the max size of the two NestedListComparitors, this will be the size we loop
         # over and use as a tiebreaker
-        
+
         # if only one is empty list:
         if len(self) == 0 and len(other) > 0:
             return True
@@ -111,7 +113,7 @@ class NestedListComparitor:
             # if right can't keep going but left can, left is greater
             if len(other) <= index and len(self) > index:
                 return False
-            
+
             # go through the paces:
             # dealing with a len == 1 for each
             if len(self) == 1 and len(other) == 1:
@@ -122,7 +124,7 @@ class NestedListComparitor:
                         continue
                     else:
                         return self.value < other.value
-                
+
                 # if they are both lists
                 if type(self.value) == list and type(other.value) == list:
 
@@ -130,14 +132,14 @@ class NestedListComparitor:
                         continue
                     else:
                         return self.value[0] < other.value[0]
-                    
+
                 # if left is an int and right is a list
                 if type(self.value) == int and type(other.value) == list:
                     if NestedListComparitor(self.value) == other.value[0]:
                         continue
                     else:
                         return NestedListComparitor(self.value) < other.value[0]
-                
+
                 # if left is list and right is int
                 if type(self.value) == list and type(other.value) == int:
                     if NestedListComparitor(other.value) == self.value[0]:
@@ -148,28 +150,26 @@ class NestedListComparitor:
             # at least one is a list
             else:
 
-               # if left is an int and right is a list
+                # if left is an int and right is a list
                 if type(self.value) == int and type(other.value) == list:
                     if NestedListComparitor(self.value) == other.value[0]:
                         continue
                     else:
                         return NestedListComparitor(self.value) < other.value[0]
-                
+
                 # if left is list and right is int
                 if type(self.value) == list and type(other.value) == int:
                     if NestedListComparitor(other.value) == self.value[0]:
                         continue
                     else:
-                        return self.value[0] < NestedListComparitor(other.value) 
+                        return self.value[0] < NestedListComparitor(other.value)
 
                 if self.value[index] == other.value[index]:
                     continue
                 else:
                     return self.value[index] < other.value[index]
-        
+
         raise Exception("Exited method")
-
-
 
     def __gt__(self, other : object) -> bool:
         """
@@ -178,27 +178,27 @@ class NestedListComparitor:
         if type(other) != NestedListComparitor:
             raise Exception(f"Type {type(other)} cannot be compared to {type(self)}")
         return self != other and other < self
-    
+
     def __eq__(self, other: object) -> bool:
         """
         Check for equality by recursively checking each node.
         """
-        if other == None:
+        if other is None:
             return False
         if type(other) != NestedListComparitor:
             raise Exception(f"Type {type(other)} cannot be compared to {type(self)}")
-        
+
         # base comparison:
         # if both are ints, compare
         if type(self.value) == int and type(other.value) == int:
             return self.value == other.value
-        
+
         # If both values are lists:
         if type(self.value) == list and type(other.value) == list:
             # if they are of differnent lengths, return False
             if len(self.value) != len(other.value):
                 return False
-            
+
             # loop through them both and see if they are the same
             for left, right in zip(self.value, other.value):
                 if left != right:
@@ -211,17 +211,17 @@ class NestedListComparitor:
                 return False
 
             return other.value[0] == self
-            
-        
+
         # compare list to int
         if type(self.value) == list and type(other.value) == int:
             if len(self.value) != 1:
                 return False
 
             return self.value[0] == other
-        
-        raise Exception(f"Missing case in equals for {self.value} {type(self.value)} and {other.value} {type(other.value)}")
-    
+
+        raise Exception(f"Missing case in equals for {self.value} {type(self.value)} and \
+                {other.value} {type(other.value)}")
+
     def __ne__(self, other: object) -> bool:
         """
         Uses `not __eq__` to check for inequality.
@@ -241,7 +241,7 @@ class NestedListComparitor:
         # terminal nodes
         if type(self.value) == int:
             return str(self.value)
-        
+
         # Dealing with a list of nodes
         else:
             out = "["
@@ -263,3 +263,4 @@ def find_corresponding_bracket_outer_index(input_str : str, start_index : int) -
         if open_count == 0:
             return index + 1
     raise Exception(f"Could not find closing bracket for {input_str} starting at {start_index}")
+

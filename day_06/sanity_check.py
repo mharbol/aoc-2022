@@ -14,6 +14,3 @@ for start in range(0, len(input)):
     if len(set(input[start : start + 14])) == 14:
         print(start + 14)
         break
-
-
-
