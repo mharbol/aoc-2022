@@ -2,10 +2,10 @@ with open("day_12_input.txt") as file:
     lines = [line.strip() for line in file.readlines()]
 
 test_input = [
-    "Sabqponm", 
-    "abcryxxl", 
-    "accszExk", 
-    "acctuvwj", 
+    "Sabqponm",
+    "abcryxxl",
+    "accszExk",
+    "acctuvwj",
     "abdefghi"
 ]
 
@@ -20,14 +20,14 @@ def make_been_visited(arr : list[str]) -> list[list[bool]]:
 
 
 def can_step(from_letter : str, to_letter : str) -> bool:
-    
+
     from_val = ord(from_letter)
     if from_letter == 'S':
         from_val = ord('a')
     to_val = ord(to_letter)
     if to_letter == 'E':
         to_val = ord('z')
-    
+
     return to_val <= from_val + 1
 
 class Position:
@@ -35,28 +35,28 @@ class Position:
         self.row = row
         self.col = col
         self.count = count
-    
+
     def all_available_moves(self, arr : list, been_there, MAX_ROW, MAX_COL) -> list:
         out = []
 
         # North
         if self.row != 0 and (not been_there[self.row - 1][self.col]) and \
-        can_step(arr[self.row][self.col], arr[self.row - 1][self.col]):
+                can_step(arr[self.row][self.col], arr[self.row - 1][self.col]):
             out.append(Position(self.row - 1, self.col, self.count + 1))
 
         # South
         if self.row + 1 < MAX_ROW and (not been_there[self.row + 1][self.col]) \
-            and can_step(arr[self.row][self.col], arr[self.row + 1][self.col]):
+                and can_step(arr[self.row][self.col], arr[self.row + 1][self.col]):
             out.append(Position(self.row + 1, self.col, self.count + 1))
 
         # East
         if self.col + 1 < MAX_COL and (not been_there[self.row][self.col + 1]) \
-            and can_step(arr[self.row][self.col], arr[self.row][self.col + 1]):
+                and can_step(arr[self.row][self.col], arr[self.row][self.col + 1]):
             out.append(Position(self.row, self.col + 1, self.count + 1))
 
         # West
         if self.col != 0 and (not been_there[self.row][self.col - 1]) and \
-            can_step(arr[self.row][self.col], arr[self.row][self.col - 1]):
+                can_step(arr[self.row][self.col], arr[self.row][self.col - 1]):
             out.append(Position(self.row, self.col - 1, self.count + 1))
 
         return out
@@ -90,6 +90,7 @@ def trail_bfs(start_row, start_col, arr):
             queue.append(next_item)
     return None
 
+
 # loop over array and get all starting points
 all_starting_points = []
 
@@ -108,6 +109,7 @@ for x in all_starting_points:
 
 print(all_path_len)
 
-all_path_len = filter(lambda x : x != None, all_path_len)
+all_path_len = filter(lambda x : x is not None, all_path_len)
 print(all_path_len)
 print(min(all_path_len))
+

@@ -36,7 +36,9 @@ Fortunately treated it like segments of a snake early on and made part 2 pretty 
 Hardest part here was understanding the wording of the input.
 The pixel format of part 2 was a nice touch; this was a fun day.
 ### [Day 11](https://adventofcode.com/2022/day/11)
+Explaination to come.
 ### [Day 12](https://adventofcode.com/2022/day/12)
+Explaination to come.
 ### [Day 13](https://adventofcode.com/2022/day/13)
 This day was so much fun. Will have to refine and save the `NestedListComparitor` tree
 for future use.
@@ -57,4 +59,10 @@ This one is in the works.
 ### [Day 21](https://adventofcode.com/2022/day/21)
 This one is in the works.
 ### [Day 22](https://adventofcode.com/2022/day/22)
+This one is in the works.
+### [Day 23](https://adventofcode.com/2022/day/23)
+This one is in the works.
+### [Day 24](https://adventofcode.com/2022/day/24)
+This one is in the works.
+### [Day 25](https://adventofcode.com/2022/day/25)
 This one is in the works.

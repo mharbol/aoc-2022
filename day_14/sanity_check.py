@@ -35,5 +35,5 @@ def get_min_max_x_y(input_arr : list[list[tuple(int, int)]]) -> tuple(int, int, 
     pass
 
 def adjust_lines(lines : list[tuple(int, int)], min_x : int, max_x : int,
-                    min_y : int, max_y : int) -> list[tuple(int, int)]:
+                 min_y : int, max_y : int) -> list[tuple(int, int)]:
     pass

@@ -13,50 +13,50 @@ class FileTreeNode:
         self.size = size
         self.parent = parent
         self.children = dict()
-    
+
     def __str__(self) -> str:
         return self.get_name()
-    
+
     def get_name(self) -> str:
         return self.name
-    
+
     def get_parent(self):
         return self.parent
-    
+
     def get_dir(self, dir_name : str):
         return self.children[dir_name]
-    
+
     def is_file(self) -> bool:
         return self.size != 0
-    
+
     def is_dir(self) -> bool:
         return self.size == 0
-    
+
     def get_child_dirs(self) -> list:
         return [node for node in self.get_children() if node.is_dir()]
-    
+
     def get_children(self) -> list:
         return list(self.children.values())
-    
+
     def add_node(self, node) -> None:
         if node.get_name() not in self.children.keys():
             self.children[node.get_name()] = node
         else:
             raise Exception()
-    
+
     def get_size(self) -> int:
         if self.is_file():
             return self.size
         else:
             return sum(node.get_size() for node in self.get_children())
-    
+
     def get_conditional_size(self, max_size : int) -> int:
         if self.is_file():
             return 0
         else:
             sz = self.get_size()
             return 0 if sz > max_size else sz
-    
+
     def walk_nodes(self):
         # yield from all children
         for child in self.get_children():
@@ -68,6 +68,7 @@ def new_dir(name : str, parent : FileTreeNode) -> FileTreeNode:
 
 def new_file(name : str, size : int) -> FileTreeNode:
     return FileTreeNode(name, size, None)
+
 
 root = FileTreeNode("/", 0, None)
 currentNode = root
@@ -91,7 +92,7 @@ def process_line(line : str, node_ptr : FileTreeNode) -> FileTreeNode:
         print(line)
         print(f"Current dir: {node_ptr} -> {node_ptr.get_parent()}")
     command = line.split(" ")
-    
+
     if command[0] == "$" and command[1] == "ls":
         return node_ptr
     elif command[0] == "$" and command[1] == "cd":
@@ -101,9 +102,11 @@ def process_line(line : str, node_ptr : FileTreeNode) -> FileTreeNode:
     else:
         return add_file(command[1], int(command[0]), node_ptr)
 
+
 for line in lines:
     currentNode = process_line(line, currentNode)
-    if VERBOSE: print()
+    if VERBOSE:
+        print()
 
 print(f"Total size   - {root.get_size()}")
 unused_space = 70000000 - root.get_size()
@@ -122,3 +125,4 @@ viable_nodes = filter(lambda node : node.get_size() >= needed_space, all_dirs)
 
 ordered_nodes = sorted(map(lambda node : (node.get_size(), node.get_name()), viable_nodes))
 print(ordered_nodes)
+

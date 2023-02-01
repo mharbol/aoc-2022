@@ -7,25 +7,27 @@ class Segment:
     def __init__(self, x, y):
         self.x = x
         self.y = y
-    
+
     def move_up(self):
         self.y += 1
-    
+
     def move_down(self):
-        self.y -=1
+        self.y -= 1
 
     def move_right(self):
         self.x += 1
 
     def move_left(self):
         self.x -= 1
-    
+
     # This determines if the segment needs to move or can just chill where it is
     def is_one_away_from(self, head):
-        if abs(self.x - head.x) > 1: return False
-        if abs(self.y - head.y) > 1: return False
+        if abs(self.x - head.x) > 1:
+            return False
+        if abs(self.y - head.y) > 1:
+            return False
         return True
-    
+
     def make_move(self, move : str):
         if move == 'U':
             self.move_up()
@@ -35,14 +37,14 @@ class Segment:
             self.move_right()
         if move == 'L':
             self.move_left()
-    
+
     # Definitely a better way to pick moves, this is just easy and bullet-proof
     # Returns the postition as a tuple so we can track unique spots the tail Segment has been
     def move_to_cover(self, head):
         # no move needed
         if self.is_one_away_from(head):
             return (self.x, self.y)
-        
+
         # up
         if head.x == self.x and head.y == self.y + 2:
             self.move_up()
@@ -89,6 +91,7 @@ class Segment:
         # Here as a way to show my moves aren't working
         raise Exception(f"Hx{head.x} Hy{head.y} Tx{self.x} Ty{self.y}")
 
+
 # Part 1
 test_input = ["R 4", "U 4", "L 3", "D 1", "R 4", "D 1", "L 5", "R 2"]
 
@@ -100,6 +103,7 @@ def move_maker(lines):
         for x in range(int(move[1])):
             out.append(move[0])
     return out
+
 
 # keep track of past positions
 past_positions = []
@@ -131,14 +135,15 @@ for move in moves:
     # can loop over 1-8 easily
     for x in range(1, 9):
         seggs[x].move_to_cover(seggs[x - 1])
-    
+
     # just keep track of where 9 is
     last_pos.add(seggs[9].move_to_cover(seggs[8]))
 
     # show current position for each segment
-    print(f"Move: {move}", end = " |  ")
+    print(f"Move: {move}", end=" |  ")
     for x, seg in enumerate(seggs):
-        print(f"{'H' if x == 0 else ('T' if x == 9 else x)}({seg.x} {seg.y})", end = " ")
+        print(f"{'H' if x == 0 else ('T' if x == 9 else x)}({seg.x} {seg.y})", end=" ")
     print()
 
 print(len(last_pos))
+

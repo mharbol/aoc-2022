@@ -29,7 +29,7 @@ def is_visible(x, y, array):
     if vis_from_bottom(x, y, array):
         return 1
     return 0
-    
+
 def vis_from_left(x, y, array):
     for i in range(0, x):
         if array[i][y] >= array[x][y]:
@@ -52,7 +52,7 @@ def vis_from_bottom(x, y, array):
     for i in range(len(array) - 1, y, -1):
         if array[x][i] >= array[x][y]:
             return False
-    return True        
+    return True
 
 
 tot = 0
@@ -62,7 +62,6 @@ for x in range(len(array)):
 
 
 scenic_scores = [[0] * 99] * 99
-
 
 
 def score_north(x, y, array):
@@ -81,7 +80,7 @@ def score_south(x, y, array):
         if array[x][i] >= array[x][y]:
             return i - y
     return 98 - y
-        
+
 def score_west(x, y, array):
     if x == 0:
         return 0
@@ -98,10 +97,13 @@ def score_east(x, y, array):
             return i - x
     return 98 - x
 
+
 maxes = []
 
 for a in range(99):
     for b in range(99):
-        maxes.append(score_north(a, b, array) * score_south(a, b, array) * score_west(a, b, array) * score_east(a, b, array))
+        maxes.append(score_north(a, b, array) * score_south(a, b, array) * score_west(
+            a, b, array) * score_east(a, b, array))
 
 print(max(maxes))
+

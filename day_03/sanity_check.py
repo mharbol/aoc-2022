@@ -7,12 +7,12 @@ with open("day_03_input.txt") as file:
 # use the ascii value of the characters to assign the priority.
 # This is annoying that lower case is before upper case
 def priority(letter : str) -> int:
-    
+
     num = ord(letter)
 
     if num in range(ord('a'), ord('z') + 1):
         return num - ord('a') + 1
-    
+
     return num - ord('A') + 27
 
 # nested for loop for some sweet n^2 action
@@ -31,6 +31,8 @@ def find_mutual_letter(s : str) -> str:
 # iterable with the results.
 # This way can chain together finding the mutual letter, then feed that to priority()
 # and finally sum it all together
+
+
 mut_letters = map(find_mutual_letter, lines)
 priorities = map(priority, mut_letters)
 print(sum(priorities))
@@ -40,15 +42,18 @@ print(sum(priorities))
 # l0 and l1. Then looping over that (inter) to see which one is common with l2
 def mut_letter_3(l0, l1, l2) -> str:
     inter = []
-    for l in l0:
-        if l in l1:
-            inter.append(l)
-    for l in inter:
-        if l in l2:
-            return l
+    for ln_1 in l0:
+        if ln_1 in l1:
+            inter.append(ln_1)
+    for ln_2 in inter:
+        if ln_2 in l2:
+            return ln_2
+
+
 total = 0
-for i in range(0, len(lines), step = 3):
+for i in range(0, len(lines), step=3):
     sl = lines[i : i + 3]
     total += priority(mut_letter_3(sl[0], sl[1], sl[2]))
 
 print(total)
+
