@@ -251,7 +251,7 @@ class NestedListComparitor:
 
 def find_corresponding_bracket_outer_index(input_str : str, start_index : int) -> int:
     """
-    Determines the index + 1 of the corresponding close bracket (`]`) for the open bracket at the
+    Determines the `index + 1` of the corresponding close bracket (`]`) for the open bracket at the
     given `start_index`.
     """
     open_count = 0

@@ -20,7 +20,7 @@ class Segment:
     def move_left(self):
         self.x -= 1
 
-    # This determines if the segment needs to move or can just chill where it is
+    # Determines if the segment needs to move or can just chill where it is
     def is_one_away_from(self, head):
         if abs(self.x - head.x) > 1:
             return False

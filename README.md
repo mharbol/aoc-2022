@@ -23,6 +23,7 @@ Probably coming Tuesday the 13th at the earliest.
 Getting back into the swing of things with `stack`s.
 Got to relearn that going stack-stack makes part 2 sooooo much easier.
 ### [Day 6](https://adventofcode.com/2022/day/6)
+Explaination to come.
 ### [Day 7](https://adventofcode.com/2022/day/7)
 This was harder than it should have been thanks to python.
 Kept thinking I was doing something wrong but it turns out I just didn't understand python

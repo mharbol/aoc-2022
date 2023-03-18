@@ -7,7 +7,7 @@ class Freq:
         self.val = 1
         self.cycle = 0
         self.record = []
-    
+
     # this is a doozy of a method:
     def process(self, value):
         # at the start of each line, start a cycle
@@ -21,7 +21,7 @@ class Freq:
             # updoot the record...
             self.record.append((self.cycle, self.val))
             # do the same cycle thing
-            self.val += value       
+            self.val += value
 
 def make_input(lines):
     out = []
@@ -31,6 +31,7 @@ def make_input(lines):
         else:
             out.append(int(line.split(" ")[1]))
     return out
+
 
 freq = Freq()
 
@@ -69,6 +70,8 @@ def alter_display(cycle, value, display):
         display[row][column] = True
 
 # Use the record from before to do the pretty pixel display
+
+
 for rec in freq.record:
     alter_display(rec[0], rec[1], display)
 
@@ -76,7 +79,9 @@ for rec in freq.record:
 def show_disp(display):
     for row in display:
         for col in row:
-            print('#' if col else ".", end = "")
+            print('#' if col else ".", end="")
         print()
 
+
 show_disp(display)
+
